@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_springsource_petclinic_domain_Pet" modelAttribute="pet" path="/pets" render="${empty dependencies}" z="lgvEyAlAYOudDmaPjwU0ABseTIk=">
+        <field:checkbox field="sendReminders" id="c_com_springsource_petclinic_domain_Pet_sendReminders" z="uPpMX+IWb0KONpvd11fpG8x4/4Q="/>
+        <field:input field="name" id="c_com_springsource_petclinic_domain_Pet_name" min="1" required="true" z="ZY+k75JeSo9RmejYZRFNIvs2aBg="/>
+        <field:input field="weight" id="c_com_springsource_petclinic_domain_Pet_weight" min="0" required="true" validationMessageCode="field_invalid_number" z="cOD5zE/z7gy+RZu5kVSPuxCa+/I="/>
+        <field:select field="owner" id="c_com_springsource_petclinic_domain_Pet_owner" itemValue="id" items="${owners}" path="/owners" z="fGzswAP4XXvhPhowJKsRVve929c="/>
+        <field:select field="type" id="c_com_springsource_petclinic_domain_Pet_type" items="${pettypes}" path="pettypes" required="true" z="+hDCnUp+Y+A1RlT+AjH07sgipOo="/>
+    </form:create>
+    <br/>
+    <div>
+       	<table id="list-pets">
+       		<tr>
+       			<th>Nome</th>
+       			<th>Peso</th>
+       			<th>Dono</th>
+       			<th>Tipo</th>
+			</tr>
+       	</table>
+    </div>
+    <br/>
+    <page:list id="pl_com_springsource_petclinic_domain_Pet" items="${pets}" z="iulvWOoVf80k/N+YbRqe2uVac54=">
+        <table:table data="${pets}" id="l_com_springsource_petclinic_domain_Pet" path="/pets" z="gvs425syhOX//lJjxIylimFQflM=">
+            <table:column id="c_com_springsource_petclinic_domain_Pet_sendReminders" property="sendReminders" z="9OZRH4z6dmoKcOlx/Gs0++zdd/A="/>
+            <table:column id="c_com_springsource_petclinic_domain_Pet_name" property="name" z="G6BvYtcQqJffm1SbxmcOLJ3cVyY="/>
+            <table:column id="c_com_springsource_petclinic_domain_Pet_weight" property="weight" z="sDq86anRDnXzji8d7j+tb9X7coI="/>
+            <table:column id="c_com_springsource_petclinic_domain_Pet_owner" property="owner" z="JVMVGGcUrASz7s3PRARbLpFTaco="/>
+            <table:column id="c_com_springsource_petclinic_domain_Pet_type" property="type" z="DUgJN4Iq28UVFmg2KaA3V+V98Fw="/>
+        </table:table>
+    </page:list>
+    <form:dependency dependencies="${dependencies}" id="d_com_springsource_petclinic_domain_Pet" render="${not empty dependencies}" z="kThDNIW+69h9nI/69ynY1WyUieo="/>
+</div>
